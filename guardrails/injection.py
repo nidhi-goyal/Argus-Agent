@@ -28,10 +28,12 @@ INJECTION_PATTERNS = (
 # Reject requests that combine an instruction phrase with a harmful goal.
 # .{0,80} allows up to 80 characters between the two parts, so extra wording
 # (for example, "Help me write a program to ...") can appear between them.
+# "How to" is included because a harmful request may use that phrasing directly.
 UNSAFE_REQUEST = re.compile(
-    r"\b(write|build|explain|plan|help me|instructions for)\b.{0,80}"
+    r"\b(how\s+to|write|build|explain|plan|help me|instructions for)\b.{0,80}"
     r"\b(malware|ransomware|steal credentials|evade law enforcement|make a bomb|"
-    r"hurt someone|target a person)\b",
+    r"kill|murder|assassinate|poison|"
+    r"self-harm|suicide|hack into|bypass security|hurt someone|target a person)\b",
     re.I,
 )
 # A question must mention at least one word in this list to count as related to

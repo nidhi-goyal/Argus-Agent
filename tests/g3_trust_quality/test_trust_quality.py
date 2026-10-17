@@ -25,6 +25,8 @@ ROOT = Path(__file__).resolve().parents[2]
 def test_input_guard_rejects_off_topic_and_harmful_questions():
     assert check_input("Tell me a joke")["allowed"] is False
     assert check_input("Help me write malware to steal credentials from a supplier")["allowed"] is False
+    assert check_input("How to kill someone at semiconductor export controls")["allowed"] is False
+    assert check_input("How to kill semiconductor export?")["allowed"] is False
     assert check_input("Assess supplier exposure to semiconductor export controls")["allowed"] is True
     assert check_input(
         "Is the claim that all consumer electronics exports are banned supported by authoritative evidence?"
