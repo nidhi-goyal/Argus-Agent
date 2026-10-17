@@ -1,0 +1,35 @@
+[
+  {
+    "id": "gov-001",
+    "title": "MOCK Official Notice: Advanced Accelerator Export Controls",
+    "source": "Fictional Bureau of Technology Controls",
+    "url": "mock://government/notices/FTBC-2026-41",
+    "date": "2026-08-10",
+    "jurisdiction": "North America",
+    "source_type": "government",
+    "tags": ["semiconductor", "export", "advanced accelerator", "effective date"],
+    "snippet": "MOCK OFFICIAL NOTICE. Controls apply only to listed advanced accelerator products meeting the specified performance threshold and destination criteria. Effective date: 2026-09-01. The notice does not impose a universal consumer electronics ban."
+  },
+  {
+    "id": "gov-002",
+    "title": "MOCK Guidance: Scope and transition period",
+    "source": "Fictional Bureau of Technology Controls",
+    "url": "mock://government/notices/FTBC-GUIDE-2026-09",
+    "date": "2026-08-18",
+    "jurisdiction": "North America",
+    "source_type": "government",
+    "tags": ["semiconductor", "export", "accelerator", "transition"],
+    "snippet": "MOCK OFFICIAL GUIDANCE reiterates the 2026-09-01 effective date and says classification depends on technical specifications. Ambiguous products should be referred to compliance counsel."
+  },
+  {
+    "id": "gov-003",
+    "title": "MOCK Notice: Advanced accelerator controls - Asia-Pacific summary",
+    "source": "Fictional Bureau of Technology Controls",
+    "url": "mock://government/notices/FTBC-APAC-2026-41",
+    "date": "2026-08-19",
+    "jurisdiction": "Asia-Pacific",
+    "source_type": "government",
+    "tags": ["semiconductor", "export", "accelerator"],
+    "snippet": "MOCK notice summary for Asia-Pacific authorities. It repeats the threshold-based scope and does not independently change the North America effective date."
+  }
+]

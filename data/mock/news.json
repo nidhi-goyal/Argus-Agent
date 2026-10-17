@@ -1,0 +1,94 @@
+[
+  {
+    "id": "news-001",
+    "title": "MOCK: Export controls cover advanced accelerator categories",
+    "source": "The Imaginary Ledger",
+    "url": "mock://news/001",
+    "date": "2026-08-12",
+    "region": "North America",
+    "source_type": "news",
+    "tags": ["semiconductor", "export", "accelerator", "regulation"],
+    "snippet": "MOCK secondary reporting says controls cover selected advanced semiconductor accelerators. The official notice lists an effective date of 2026-09-01."
+  },
+  {
+    "id": "news-002",
+    "title": "MOCK: Export controls cover advanced accelerator categories",
+    "source": "The Imaginary Ledger - Syndicated",
+    "url": "mock://news/002",
+    "date": "2026-08-12",
+    "region": "North America",
+    "source_type": "news",
+    "duplicate_of": "news-001",
+    "tags": ["semiconductor", "export", "accelerator", "regulation"],
+    "snippet": "MOCK syndicated duplicate of news-001: selected advanced semiconductor accelerators are covered; the stated official effective date is 2026-09-01."
+  },
+  {
+    "id": "news-003",
+    "title": "MOCK: Export controls cover advanced accelerator categories",
+    "source": "World Desk Fictional Wire",
+    "url": "mock://news/003",
+    "date": "2026-08-13",
+    "region": "North America",
+    "source_type": "news",
+    "duplicate_of": "news-001",
+    "tags": ["semiconductor", "export", "accelerator", "regulation"],
+    "snippet": "MOCK republished account of the same report. It is not an independent source and repeats the 2026-09-01 date."
+  },
+  {
+    "id": "news-004",
+    "title": "MOCK: Industry source says accelerator controls start immediately",
+    "source": "Chipmaking Fiction Review",
+    "url": "mock://news/004",
+    "date": "2026-08-14",
+    "region": "North America",
+    "source_type": "news",
+    "tags": ["semiconductor", "export", "accelerator", "effective date", "conflict"],
+    "snippet": "MOCK industry commentary claims the controls take effect immediately, conflicting with the official notice dated 2026-09-01. This interpretation is unverified."
+  },
+  {
+    "id": "news-005",
+    "title": "MOCK viral post claims all consumer electronics are banned",
+    "source": "Unverified Social Mirror",
+    "url": "mock://news/005",
+    "date": "2026-08-15",
+    "region": "Global",
+    "source_type": "news",
+    "tags": ["viral", "unverified", "ban", "consumer electronics"],
+    "snippet": "MOCK unverified viral claim says all consumer electronics exports are banned. No authoritative corroboration is present in this dataset."
+  },
+  {
+    "id": "news-006",
+    "title": "MOCK viral post repeats claim of a universal electronics ban",
+    "source": "Unverified Social Mirror",
+    "url": "mock://news/006",
+    "date": "2026-08-15",
+    "region": "Global",
+    "source_type": "news",
+    "duplicate_of": "news-005",
+    "tags": ["viral", "unverified", "ban", "consumer electronics"],
+    "snippet": "MOCK repetition of the unverified news-005 social claim. Repetition is not independent corroboration."
+  },
+  {
+    "id": "news-007",
+    "title": "MOCK: Cirrus Silicon says committed deliveries are unaffected",
+    "source": "Cirrus Silicon Fictional Supplier Bulletin",
+    "url": "mock://news/007",
+    "date": "2026-08-16",
+    "region": "North America",
+    "source_type": "company",
+    "tags": ["Cirrus Silicon", "supplier", "unaffected", "delivery"],
+    "snippet": "MOCK supplier statement says committed deliveries are unaffected. It does not establish whether the controlled product category is legally covered."
+  },
+  {
+    "id": "news-008",
+    "title": "MOCK: Non-English bulletin describes a narrower accelerator scope",
+    "source": "Boletin Tecnologico Ficticio",
+    "url": "mock://news/008",
+    "date": "2026-08-17",
+    "region": "Global",
+    "source_type": "news",
+    "language": "es",
+    "tags": ["semiconductor", "export", "accelerator", "translation"],
+    "snippet": "MOCK Spanish-language bulletin describes controls for advanced training accelerators only. A later English summary omits the word advanced; treat the scope difference as a conflict."
+  }
+]

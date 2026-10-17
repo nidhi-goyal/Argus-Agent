@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a24">
+  <title>ARGUS | Risk intelligence</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="ARGUS home">
+      <span class="brand-mark" aria-hidden="true">A</span>
+      <span>ARGUS<span class="brand-subtitle">RISK INTELLIGENCE</span></span>
+    </a>
+    <div class="topbar-right">
+      <span class="local-indicator"><span></span> LOCAL WORKSPACE</span>
+      <span class="avatar" aria-hidden="true">N</span>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <div class="page-heading">
+      <div>
+        <div class="eyebrow">NORTHSTAR INSTRUMENTS <span>/</span> INTELLIGENCE</div>
+        <h1>Risk intelligence workspace</h1>
+        <p class="intro">Investigate an event, understand possible exposure, and review evidence-backed next steps.</p>
+      </div>
+      <div class="sample-label"><span class="sample-dot"></span> Fictional sample data</div>
+    </div>
+
+    <section class="query-card" aria-labelledby="query-title">
+      <div class="query-heading">
+        <div>
+          <div class="section-kicker">NEW INVESTIGATION</div>
+          <h2 id="query-title">What should we look into?</h2>
+        </div>
+        <span class="query-step"><span>01</span> / ASK ARGUS</span>
+      </div>
+      <form id="investigation-form">
+        <label class="visually-hidden" for="question">Describe the event or business concern</label>
+        <textarea id="question" name="question" maxlength="2000" rows="3" required
+          placeholder="Describe a geopolitical, regulatory, supplier, or market event..."></textarea>
+        <div class="form-bottom">
+          <span class="input-hint">Be specific about the event, region, supplier, or product if known.</span>
+          <button class="primary-button" id="submit-button" type="submit">
+            <span>Run investigation</span><span class="button-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </form>
+      <div class="examples" aria-label="Example questions">
+        <span class="examples-label">TRY AN EXAMPLE</span>
+        <button type="button" class="example-chip" data-question="There are reports of new semiconductor export restrictions. Investigate what changed, check whether our suppliers or products may be exposed, estimate risk and recommend next actions.">Semiconductor restrictions <span aria-hidden="true">↗</span></button>
+        <button type="button" class="example-chip" data-question="A supplier may have announced a production delay. Check the available evidence for Northstar exposure and recommend next steps.">Supplier disruption <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="error-banner" id="error-banner" role="alert" hidden></div>
+    </section>
+
+    <div class="loading-card" id="loading-card" role="status" hidden>
+      <span class="spinner" aria-hidden="true"></span>
+      <div><strong>ARGUS is investigating</strong><span>Reviewing available evidence and internal exposure...</span></div>
+    </div>
+
+    <section class="results" id="results" aria-live="polite" hidden>
+      <div class="results-heading">
+        <div>
+          <div class="section-kicker">INVESTIGATION RESULTS</div>
+          <h2>Assessment overview</h2>
+        </div>
+        <span class="gate-badge" id="gate-badge"></span>
+      </div>
+
+      <div class="score-grid" id="score-grid"></div>
+      <div class="results-columns">
+        <div class="main-column">
+          <section class="panel report-panel">
+            <div class="panel-heading">
+              <div><span class="panel-icon">▤</span><h3>Executive report</h3></div>
+              <span class="panel-note">FACTS · INFERENCE · UNCERTAINTY</span>
+            </div>
+            <pre class="report-text" id="report-text"></pre>
+          </section>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <div><span class="panel-icon">↗</span><h3>Recommended next steps</h3></div>
+              <span class="count-badge" id="action-count"></span>
+            </div>
+            <div class="card-list" id="actions-list"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <div><span class="panel-icon">◎</span><h3>Evidence reviewed</h3></div>
+              <span class="count-badge" id="evidence-count"></span>
+            </div>
+            <div class="card-list" id="evidence-list"></div>
+          </section>
+        </div>
+        <aside class="side-column">
+          <section class="panel">
+            <div class="panel-heading"><div><span class="panel-icon">≋</span><h3>Risk dimensions</h3></div></div>
+            <div id="dimensions-list"></div>
+            <div class="formula-box"><span>SCORING METHOD</span><code id="formula-text"></code></div>
+          </section>
+          <section class="panel">
+            <div class="panel-heading"><div><span class="panel-icon">⚑</span><h3>Conflicts &amp; caveats</h3></div><span class="count-badge" id="conflict-count"></span></div>
+            <div class="card-list" id="conflicts-list"></div>
+            <div class="limitations-list" id="limitations-list"></div>
+          </section>
+          <div class="trust-note"><span aria-hidden="true">◈</span><p>ARGUS provides decision support, not a decision. Verify critical information and obtain human approval before acting.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <span>ARGUS <span class="footer-divider">/</span> LOCAL DEMO</span>
+      <span>External intelligence is mock data. No recommendations are executed.</span>
+    </footer>
+  </main>
+</body>
+</html>

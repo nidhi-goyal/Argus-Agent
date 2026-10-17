@@ -1,0 +1,2 @@
+"""ARGUS test suite."""
+

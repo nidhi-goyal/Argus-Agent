@@ -1,0 +1,74 @@
+[
+  {
+    "id": "g1-01",
+    "prompt": "Which supplier provides the advanced accelerator used in Helios Edge?",
+    "expected_source": "product_component_map.pdf",
+    "expected_fact": "Cirrus Silicon supplies the advanced accelerator used in Helios Edge."
+  },
+  {
+    "id": "g1-02",
+    "prompt": "Which products use components supplied by Cirrus Silicon?",
+    "expected_source": "product_component_map.pdf",
+    "expected_fact": "Only Helios Edge uses a Cirrus Silicon advanced accelerator."
+  },
+  {
+    "id": "g1-03",
+    "prompt": "What is the inventory coverage for Helios Edge accelerators?",
+    "expected_source": "procurement_inventory_note.pdf",
+    "expected_fact": "Helios Edge has 45 days of accelerator inventory."
+  },
+  {
+    "id": "g1-04",
+    "prompt": "When does the current Cirrus Silicon supply agreement expire?",
+    "expected_source": "cirrus_current_contract.pdf",
+    "expected_fact": "The current Cirrus Silicon agreement expires on 2027-12-31."
+  },
+  {
+    "id": "g1-05",
+    "prompt": "What did the expired Kestrel Components contract say, and what replaced it?",
+    "expected_source": "kestrel_contract_v2.pdf",
+    "expected_fact": "The expired v1 agreement was replaced by active contract v2."
+  },
+  {
+    "id": "g1-06",
+    "prompt": "What does Northstar's supply continuity policy require when a sole-source component is threatened?",
+    "expected_source": "supply_risk_policy.pdf",
+    "expected_fact": "Escalate sole-source exposure, verify inventory, and identify alternatives."
+  },
+  {
+    "id": "g1-07",
+    "prompt": "What is the policy for communicating with suppliers about a possible export-control impact?",
+    "expected_source": "supplier_communication_policy.pdf",
+    "expected_fact": "Procurement and Legal approve supplier inquiries; staff must not make unsupported assurances."
+  },
+  {
+    "id": "g1-08",
+    "prompt": "Which Northstar products use Lumen Foundry components?",
+    "expected_source": "product_component_map.pdf",
+    "expected_fact": "Beacon Gateway and Aurora Array use Lumen Foundry components."
+  },
+  {
+    "id": "g1-09",
+    "prompt": "What happened in Northstar's earlier supplier disruption incident?",
+    "expected_source": "historical_incident_report.pdf",
+    "expected_fact": "A prior packaging delay affected Meridian Sensor and was mitigated with buffer inventory."
+  },
+  {
+    "id": "g1-10",
+    "prompt": "Which Northstar product is explicitly not dependent on Cirrus Silicon?",
+    "expected_source": "product_component_map.pdf",
+    "expected_fact": "Beacon Gateway, Aurora Array, Meridian Sensor, and Atlas Controller are not dependent on Cirrus Silicon."
+  },
+  {
+    "id": "g1-11",
+    "prompt": "Which Northstar facility and region hold Helios Edge accelerator inventory?",
+    "expected_source": "procurement_inventory_note.pdf",
+    "expected_fact": "The fictional Reno, Nevada facility holds 45 days of inventory for North America."
+  },
+  {
+    "id": "g1-12",
+    "prompt": "Which document gives the active Kestrel Components agreement and its version?",
+    "expected_source": "kestrel_contract_v2.pdf",
+    "expected_fact": "Contract KST-204 v2 is active and replaces expired v1."
+  }
+]

@@ -1,0 +1,47 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 1000 900] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 817 >>
+stream
+BT
+/F1 10 Tf
+50 840 Td
+(ARGUS_METADATA: {"doc_date":"2026-08-11","version":"v1","document_id":"NSI-OPS-INV-017","doc_type":"inventory","confidentiality":"internal","status":"active","product":"Helios Edge","supplier":"Cirrus Silicon","region":"North America"}) Tj
+0 -18 Td
+(MOCK INTERNAL DOCUMENT - PROCUREMENT AND INVENTORY NOTE.) Tj
+0 -18 Td
+(At the 2026-08-11 review, Northstar Reno, Nevada holds 45 days of CXR-900 accelerator inventory for Helios Edge.) Tj
+0 -18 Td
+(The inventory estimate assumes the current production schedule and does not guarantee future supplier deliveries.) Tj
+0 -18 Td
+(Beacon Gateway has 30 days of Lumen Foundry controller inventory; Aurora Array has 52 days.) Tj
+0 -18 Td
+(Procurement should verify committed orders and current stock before making operational changes.) Tj
+0 -18 Td
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000242 00000 n 
+0000000312 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1180
+%%EOF

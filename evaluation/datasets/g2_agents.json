@@ -1,0 +1,46 @@
+{
+  "tool_cases": [
+    {
+      "id": "g2-tool-01",
+      "query": "Investigate semiconductor export restrictions and regulatory scope",
+      "expected_tool": "search_regulation"
+    },
+    {
+      "id": "g2-tool-02",
+      "query": "There are news reports of a supplier disruption",
+      "expected_tool": "search_news"
+    },
+    {
+      "id": "g2-tool-03",
+      "query": "Which Northstar supplier provides the Helios Edge component?",
+      "expected_tool": "search_internal"
+    }
+  ],
+  "seeded_conflicts": [
+    {
+      "id": "g2-conflict-01",
+      "claim_type": "effective_date",
+      "description": "The official notice says 2026-09-01 while a secondary report claims immediate effect."
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "g2-scenario-01",
+      "query": "Investigate semiconductor export restrictions and Northstar supplier exposure",
+      "expected_behaviors": [
+        "regulation source selected",
+        "internal source retrieved",
+        "effective-date conflict preserved",
+        "research loop terminates"
+      ]
+    },
+    {
+      "id": "g2-scenario-02",
+      "query": "There are reports of an unverified supplier disruption",
+      "expected_behaviors": [
+        "news source selected",
+        "unsupported rumor not upgraded to a verified fact"
+      ]
+    }
+  ]
+}

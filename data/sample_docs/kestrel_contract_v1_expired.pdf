@@ -1,0 +1,45 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 1000 900] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 676 >>
+stream
+BT
+/F1 10 Tf
+50 840 Td
+(ARGUS_METADATA: {"doc_date":"2023-01-01","valid_until":"2025-12-31","version":"v1","document_id":"NSI-CON-KST-001","doc_type":"contract","confidentiality":"internal","status":"expired","product":"Meridian Sensor","supplier":"Kestrel Components","region":"North America"}) Tj
+0 -18 Td
+(MOCK INTERNAL DOCUMENT - ARCHIVED / EXPIRED AGREEMENT.) Tj
+0 -18 Td
+(Kestrel Components contract KST-204 version v1 expired on 2025-12-31.) Tj
+0 -18 Td
+(This agreement covered magnetic sensor assemblies for Meridian Sensor.) Tj
+0 -18 Td
+(This expired version was superseded by active contract KST-204 version v2; do not use v1 for current commitments.) Tj
+0 -18 Td
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000242 00000 n 
+0000000312 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1039
+%%EOF

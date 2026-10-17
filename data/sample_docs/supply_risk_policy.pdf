@@ -1,0 +1,47 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 1000 900] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 758 >>
+stream
+BT
+/F1 10 Tf
+50 840 Td
+(ARGUS_METADATA: {"doc_date":"2026-03-01","version":"v2","document_id":"NSI-POL-RISK-004","doc_type":"policy","confidentiality":"internal","status":"active","product":"","supplier":"","region":"Global"}) Tj
+0 -18 Td
+(MOCK INTERNAL DOCUMENT - SUPPLY CONTINUITY AND RISK POLICY.) Tj
+0 -18 Td
+(For threatened sole-source components, escalate promptly to Supply Risk and the product owner.) Tj
+0 -18 Td
+(Verify on-hand inventory, supplier commitments, lead time, and affected bill-of-material relationships.) Tj
+0 -18 Td
+(Identify qualified alternatives and assess customer and operational consequences before changing supply.) Tj
+0 -18 Td
+(Record evidence, assumptions, uncertainty, and decision owner in the incident log.) Tj
+0 -18 Td
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000242 00000 n 
+0000000312 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1121
+%%EOF
