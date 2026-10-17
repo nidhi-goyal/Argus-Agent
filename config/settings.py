@@ -1,4 +1,4 @@
-"""Group 2: shared, environment-configurable ARGUS settings."""
+"""shared, environment-configurable ARGUS settings."""
 
 # Input: optional environment variables for limits and scoring policy.
 # Output: one validated Settings object shared by the graph, guardrails, and agents.

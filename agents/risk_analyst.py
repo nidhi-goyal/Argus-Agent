@@ -1,4 +1,4 @@
-"""Group 3: calculate a transparent impact, probability, and urgency risk score."""
+"""calculate a transparent impact, probability, and urgency risk score."""
 
 # Input: verified claims, internal exposure, and optional labelled score dimensions.
 # Output: risk score/level, confidence, and evidence quality as separate values.

@@ -1,4 +1,4 @@
-"""Group 3: decide if evidence supports a conclusion or more research is needed."""
+"""decide if evidence supports a conclusion or more research is needed."""
 
 # The graph uses this gate to control its loop; the gate never trusts a model to
 # decide by itself that research is complete.

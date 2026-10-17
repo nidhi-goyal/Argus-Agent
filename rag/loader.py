@@ -1,4 +1,4 @@
-"""Group 1: load PDF and plain-text internal knowledge documents."""
+"""load PDF and plain-text internal knowledge documents."""
 
 # RAG sequence: 1/5 — source documents enter the pipeline here.
 # Input: a file path or directory containing PDF, TXT, or Markdown documents.

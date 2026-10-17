@@ -1,4 +1,4 @@
-"""Group 2: one bounded Think -> Act -> Observe investigation step."""
+"""one bounded Think -> Act -> Observe investigation step."""
 
 # Input: the current question, gathered evidence, tool history, and research budget.
 # Output: new tool observations, updated evidence lists, and an incremented iteration count.
@@ -6,8 +6,11 @@
 from __future__ import annotations
 
 from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutureTimeout
+import json
 import re
 from typing import Any, Callable
+
+from models.cascade import call_model, parse_json_object
 
 from mcp.government_client import search_regulation
 from mcp.news_client import search_news
@@ -84,6 +87,50 @@ def choose_next_tool(state: dict[str, Any]) -> str:
     return "search_internal"
 
 
+def _choose_tool_with_model(state: dict[str, Any]) -> tuple[str, dict[str, Any] | None]:
+    """Use the small tier for tool routing, then validate against available tools."""
+    fallback = choose_next_tool(state)
+    successful = {
+        str(call.get("tool"))
+        for call in state.get("tool_calls", [])
+        if call.get("status") in {"ok", "empty"}
+    }
+    available = [
+        tool for tool in ("search_news", "search_regulation", "search_internal")
+        if tool not in successful
+    ]
+    if fallback not in available and not available:
+        available = [fallback]
+    elif fallback not in available:
+        available.append(fallback)
+
+    prompt = json.dumps({
+        "question": str(state.get("investigation_objective") or state.get("user_query") or ""),
+        "missing_information": list(state.get("missing_information", [])),
+        "successful_tools": sorted(successful),
+        "available_tools": available,
+        "supplier_names": [
+            item.get("name") for item in state.get("impacted_suppliers", []) if item.get("name")
+        ],
+    }, ensure_ascii=False)
+    output, telemetry = call_model(
+        "small",
+        "tool_selection",
+        "Choose the next useful source category from available_tools. Return only a JSON object "
+        'like {"tool":"search_news"}. Do not invent tools or claim evidence was found.',
+        prompt,
+    )
+    parsed = parse_json_object(output)
+    selected = parsed.get("tool") if parsed else None
+    accepted = selected in available
+    if not accepted:
+        selected = fallback
+    if telemetry:
+        telemetry["selected_tool"] = selected
+        telemetry["model_selection_accepted"] = accepted
+    return str(selected), telemetry
+
+
 def _run_with_timeout(
     function: Callable[..., dict[str, Any]],
     timeout: float,
@@ -122,7 +169,7 @@ def _internal_search_result(query: str, top_k: int) -> dict[str, Any]:
 
 
 def _call_tool(tool_name: str, query: str, state: dict[str, Any]) -> dict[str, Any]:
-    """Call the selected local tool using its existing Group 1 signature."""
+    """Call the selected local tool using its existing signature."""
     if tool_name == "search_regulation":
         return _run_with_timeout(
             search_regulation,
@@ -183,7 +230,7 @@ def investigate_more(state: dict[str, Any]) -> dict[str, Any]:
         }
 
     # Think: select a tool from the question and the evidence already collected.
-    tool_name = choose_next_tool(state)
+    tool_name, model_call = _choose_tool_with_model(state)
     query = str(state.get("investigation_objective") or state.get("user_query") or "").strip()
     iteration = int(state.get("investigation_iterations", 0)) + 1
     calls = list(state.get("tool_calls", []))
@@ -191,6 +238,8 @@ def investigate_more(state: dict[str, Any]) -> dict[str, Any]:
     errors = list(state.get("errors", []))
     missing = list(state.get("missing_information", []))
     updates: dict[str, Any] = {"investigation_iterations": iteration}
+    if model_call:
+        updates["model_calls"] = list(state.get("model_calls", [])) + [model_call]
 
     # Act: retry a failed tool only up to the configured limit.
     result: dict[str, Any] = {"status": "error", "mock": True, "items": [], "error": "Tool was not called."}

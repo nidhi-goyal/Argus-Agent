@@ -1,4 +1,4 @@
-"""Group 1: prioritize relevant current documents over expired knowledge."""
+"""prioritize relevant current documents over expired knowledge."""
 
 # RAG sequence: 5/5 — final retrieval sub-step, after similarity search and metadata filtering.
 # Input: ranked retrieval chunks with scores and optional status/version/date metadata.

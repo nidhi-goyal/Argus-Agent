@@ -1,4 +1,4 @@
-"""Group 2: choose safe graph branches and keep research loops bounded."""
+"""choose safe graph branches and keep research loops bounded."""
 
 # Input: the latest shared state after a guardrail or evidence-gate node.
 # Output: the next named graph node.
@@ -11,7 +11,7 @@ from guardrails.budgets import budget_remaining
 
 
 def route_after_input(state: dict[str, Any]) -> str:
-    """Continue only when the initial question passed the Group 3 guardrail."""
+    """Continue only when the initial question passed the guardrail."""
     return "analyze_query" if state.get("input_allowed") else "reject_input"
 
 

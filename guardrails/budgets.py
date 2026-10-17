@@ -1,4 +1,4 @@
-"""Group 3: hard limits for investigation loops, retries, and tool time."""
+"""hard limits for investigation loops, retries, and tool time."""
 
 # Input: current shared state and optional configuration limits.
 # Output: budget_remaining decision; tools are never retried without a cap.

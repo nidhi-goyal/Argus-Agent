@@ -1,4 +1,4 @@
-"""Group 1: identify supplier/product exposure from retrieved internal evidence."""
+"""identify supplier/product exposure from retrieved internal evidence."""
 
 from __future__ import annotations
 

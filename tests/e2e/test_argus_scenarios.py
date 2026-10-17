@@ -1,4 +1,4 @@
-"""Shared Group 1/2/3 end-to-end ARGUS scenario tests."""
+"""ARGUS scenario tests."""
 
 from __future__ import annotations
 

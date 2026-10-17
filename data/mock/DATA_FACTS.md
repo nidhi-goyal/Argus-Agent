@@ -1,4 +1,4 @@
-# MOCK Group 1 data manifest
+# MOCK data manifest
 
 All names and events below are invented, and all mock external records are
 marked `MOCK` in their titles/snippets and returned with `mock: true`.

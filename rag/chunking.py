@@ -1,4 +1,4 @@
-"""Group 1: clean documents and attach metadata to retrieval chunks."""
+"""clean documents and attach metadata to retrieval chunks."""
 
 # RAG sequence: 2/5 — prepare loaded documents for embedding and indexing.
 # Input: loader document records; chunk size and overlap are optional settings.

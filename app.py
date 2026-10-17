@@ -1,4 +1,4 @@
-"""Group 2: command-line entry point for an ARGUS investigation."""
+"""command-line entry point for an ARGUS investigation."""
 
 # Input: an optional executive question and development/test switches.
 # Output: one or more evidence-grounded reports; without a question, prompt until exit.

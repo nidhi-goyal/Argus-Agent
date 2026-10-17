@@ -1,4 +1,4 @@
-"""Group 1: orchestrate document loading, chunking, embedding, and persistence."""
+"""orchestrate document loading, chunking, embedding, and persistence."""
 
 # RAG sequence: 4/5 — connect loading, chunking, embedding, and index persistence.
 # Input: source-document directory and optional destination index directory.

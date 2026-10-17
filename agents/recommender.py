@@ -1,4 +1,4 @@
-"""Group 3: suggest prioritized, evidence-linked actions for human decision makers."""
+"""suggest prioritized, evidence-linked actions for human decision makers."""
 
 # Input: risk scores, impacted suppliers/products, evidence, and unresolved gaps.
 # Output: RecommendedAction dictionaries; this module never executes an action.

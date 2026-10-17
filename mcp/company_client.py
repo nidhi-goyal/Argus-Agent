@@ -1,4 +1,4 @@
-"""Group 1 stretch placeholder: mock company intelligence client."""
+"""mock company intelligence client."""
 
 # ARGUS workflow: optional external company lookup, called during evidence discovery.
 # Input: a company name to look up.

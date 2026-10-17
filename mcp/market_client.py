@@ -1,4 +1,4 @@
-"""Group 1 stretch placeholder: mock market intelligence client."""
+"""mock market intelligence client."""
 
 # ARGUS workflow: optional external market lookup, called during evidence discovery.
 # Input: a market symbol, such as a fictional ticker or commodity code.

@@ -1,4 +1,4 @@
-"""Group 2: compile the LangGraph workflow that runs an ARGUS investigation."""
+"""compile the LangGraph workflow that runs an ARGUS investigation."""
 
 # Input: an executive question wrapped in IntelligenceState.
 # Output: the final state after bounded investigation, verification, risk,
@@ -90,7 +90,7 @@ def retrieve_internal_context(state: dict[str, Any]) -> dict[str, Any]:
             if "internal supplier/product exposure" not in item.casefold()
             and "internal document" not in item.casefold()
         ]
-    # Group 1 returns only the state fields it owns. Merge its evidence with the
+    # This node returns only the state fields it owns. Merge its evidence with the
     # existing tool observations instead of dropping anything gathered earlier.
     existing_documents = list(state.get("internal_documents", []))
     by_source = {str(item.get("source_id")): item for item in existing_documents}

@@ -1,4 +1,4 @@
-"""Group 3 tests: guardrails, budgets, risk, actions, reports, and metrics."""
+"""guardrails, budgets, risk, actions, reports, and metrics."""
 
 from __future__ import annotations
 

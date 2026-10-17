@@ -1,12 +1,15 @@
-"""Group 2: understand the executive question and prepare an investigation plan."""
+"""understand the executive question and prepare an investigation plan."""
 
 # Input: IntelligenceState with the user's question.
 # Output: objective, recognized entities, needed evidence, and the initial missing facts.
 
 from __future__ import annotations
 
+import json
 import re
 from typing import Any
+
+from models.cascade import call_model, parse_json_object
 
 
 KNOWN_ENTITIES = (
@@ -44,7 +47,66 @@ def analyze_query(state: dict[str, Any]) -> dict[str, Any]:
         evidence_needed.append("independent secondary reporting")
     objective = query
 
-    return {
+    model_prompt = json.dumps({
+        "question": query,
+        "known_entities": list(KNOWN_ENTITIES),
+        "allowed_evidence_categories": [
+            "external event evidence",
+            "internal supplier/product exposure",
+            "authoritative regulatory scope and effective date",
+            "independent secondary reporting",
+        ],
+    }, ensure_ascii=False)
+    model_text, model_call = call_model(
+        "small",
+        "query_planning",
+        "Extract only what is explicitly present in the question. Return one JSON object with "
+        "objective (a concise search query), entities, companies, countries, and evidence_needed. "
+        "Do not invent facts or add evidence categories outside the supplied list.",
+        model_prompt,
+    )
+    model_calls = list(state.get("model_calls", []))
+    if model_call:
+        model_calls.append(model_call)
+    parsed = parse_json_object(model_text)
+    if parsed:
+        proposed_objective = parsed.get("objective")
+        if isinstance(proposed_objective, str) and proposed_objective.strip():
+            objective = proposed_objective.strip()[:1000]
+
+        # Only keep entities the model can point to in the user's actual question.
+        mentioned_entities = parsed.get("entities", [])
+        if isinstance(mentioned_entities, list):
+            for name in mentioned_entities:
+                if isinstance(name, str) and name.strip() and name.casefold() in query.casefold():
+                    if name not in entities:
+                        entities.append(name)
+        model_companies = parsed.get("companies", [])
+        if isinstance(model_companies, list):
+            companies.extend(
+                name for name in model_companies
+                if isinstance(name, str) and name in entities and name not in companies
+            )
+        model_countries = parsed.get("countries", [])
+        if isinstance(model_countries, list):
+            countries.extend(
+                name for name in model_countries
+                if isinstance(name, str) and name in entities and name not in countries
+            )
+        allowed_categories = {
+            "external event evidence",
+            "internal supplier/product exposure",
+            "authoritative regulatory scope and effective date",
+            "independent secondary reporting",
+        }
+        proposed_needs = parsed.get("evidence_needed", [])
+        if isinstance(proposed_needs, list):
+            evidence_needed.extend(
+                item for item in proposed_needs
+                if isinstance(item, str) and item in allowed_categories and item not in evidence_needed
+            )
+
+    updates = {
         "investigation_objective": objective,
         "entities": entities,
         "companies": companies,
@@ -52,3 +114,6 @@ def analyze_query(state: dict[str, Any]) -> dict[str, Any]:
         "evidence_needed": evidence_needed,
         "missing_information": evidence_needed.copy(),
     }
+    if model_calls != list(state.get("model_calls", [])):
+        updates["model_calls"] = model_calls
+    return updates

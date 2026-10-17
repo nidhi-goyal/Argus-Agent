@@ -1,4 +1,4 @@
-"""Group 1: ingestion, retrieval quality, metadata, reranking, and external tools."""
+"""ingestion, retrieval quality, metadata, reranking, and external tools."""
 
 from __future__ import annotations
 

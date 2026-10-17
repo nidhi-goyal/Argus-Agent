@@ -1,2 +1,2 @@
-"""Group 1 knowledge pipeline and external-tool tests."""
+"""Knowledge pipeline and external-tool tests."""
 

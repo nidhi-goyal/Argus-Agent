@@ -1,4 +1,4 @@
-"""Group 2: shared state that carries information through the ARGUS graph."""
+"""shared state that carries information through the ARGUS graph."""
 
 # Every graph node reads this dictionary and returns only the keys it updates.
 # Initial values are created by new_state so loops always start with fresh lists.
@@ -42,6 +42,7 @@ class IntelligenceState(TypedDict, total=False):
     evaluation_result: dict[str, Any]
     final_report: str
     errors: list[str]
+    model_calls: list[dict[str, Any]]
     tool_calls: list[dict[str, Any]]
     observations: list[dict[str, Any]]
     tool_selection_accuracy: list[dict[str, Any]]
@@ -94,6 +95,7 @@ def new_state(user_query: str, **overrides: Any) -> IntelligenceState:
         "evaluation_result": {},
         "final_report": "",
         "errors": [],
+        "model_calls": [],
         "tool_calls": [],
         "observations": [],
         "tool_selection_accuracy": [],

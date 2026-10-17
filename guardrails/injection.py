@@ -1,4 +1,4 @@
-"""Group 3: reject unsafe/off-topic inputs and flag instructions in evidence."""
+"""reject unsafe/off-topic inputs and flag instructions in evidence."""
 
 # Input: executive questions or text returned from untrusted documents/tools.
 # Output: a simple allowed/reason decision or sanitized-text/injection-flag result.

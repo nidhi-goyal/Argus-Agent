@@ -1,2 +1,1 @@
-"""ARGUS shared model package; owned by Group 2."""
-
+"""ARGUS shared model package."""

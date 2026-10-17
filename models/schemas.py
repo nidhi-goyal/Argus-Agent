@@ -1,4 +1,4 @@
-"""Group 2: shared typed data shapes used across ARGUS components."""
+"""shared typed data shapes used across ARGUS components."""
 
 # Input: fields returned by tools, RAG, and workflow agents.
 # Output: reusable TypedDict contracts that document each exchanged dictionary.

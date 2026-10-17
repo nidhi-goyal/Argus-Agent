@@ -1,4 +1,4 @@
-"""Group 1: mock news search client with explicit empty/error result states."""
+"""mock news search client with explicit empty/error result states."""
 
 # ARGUS workflow: external evidence discovery, called by the news investigator.
 # Input: search words and optional date/region filters; failure simulation is for tests.

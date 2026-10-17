@@ -1,4 +1,4 @@
-"""Group 2 tests: LangGraph execution, routing, investigation, and claims."""
+"""LangGraph execution, routing, investigation, and claims."""
 
 from __future__ import annotations
 

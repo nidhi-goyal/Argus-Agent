@@ -1,4 +1,4 @@
-"""Group 1: mock government/regulatory search client."""
+"""mock government/regulatory search client."""
 
 # ARGUS workflow: external evidence discovery, called when regulatory evidence is needed.
 # Input: search words, an optional jurisdiction, and an optional failure-test switch.

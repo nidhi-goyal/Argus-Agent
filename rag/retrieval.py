@@ -1,4 +1,4 @@
-"""Group 1: metadata-filtered semantic search over internal knowledge."""
+"""metadata-filtered semantic search over internal knowledge."""
 
 # RAG sequence: 5/5 — search the persisted index, apply filters, then rerank results.
 # Input: a non-empty query, top_k result limit, and optional metadata/date filters.

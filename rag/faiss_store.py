@@ -1,4 +1,4 @@
-"""Group 1: persist local vector indexes, using FAISS when it is installed."""
+"""persist local vector indexes, using FAISS when it is installed."""
 
 # RAG sequence: 3/5 — embed text, store vectors, and save or reload the index.
 # Input: text chunks to index, a query plus result limit to search, or an index directory to load.

@@ -1,4 +1,4 @@
-"""Group 3: calculate explicit quality measures over labelled ARGUS examples."""
+"""calculate explicit quality measures over labelled ARGUS examples."""
 
 # Retrieval precision remains separate from grounding and answer quality so a
 # retrieval failure can be distinguished from a reasoning/reporting failure.

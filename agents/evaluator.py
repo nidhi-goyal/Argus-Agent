@@ -1,4 +1,4 @@
-"""Group 3: check grounding and produce the final decision-oriented report."""
+"""check grounding and produce the final decision-oriented report."""
 
 # Input: the completed investigation state.
 # Output: evaluation checklist and a report that separates evidence, inference,
@@ -223,5 +223,39 @@ def generate_report(state: dict[str, Any]) -> dict[str, Any]:
             report_lines.append(f"- {limitation}")
     else:
         report_lines.append("- No additional limitations were recorded.")
+
+    model_calls = list(state.get("model_calls", []))
+    report_lines.extend(["", "MODEL CASCADE TELEMETRY"])
+    if not model_calls:
+        report_lines.append(
+            "- No model API requests were recorded; deterministic local processing was used."
+        )
+    else:
+        successful_calls = [call for call in model_calls if call.get("status") == "ok"]
+        total_cost = sum(float(call.get("estimated_cost_usd", 0.0)) for call in successful_calls)
+        total_latency = sum(float(call.get("latency_ms", 0.0)) for call in model_calls)
+        total_tokens = sum(
+            int(call.get("input_tokens", 0)) + int(call.get("output_tokens", 0))
+            for call in successful_calls
+        )
+        for call in model_calls:
+            detail = (
+                f"- {call.get('tier', 'unknown')} / {call.get('model', 'unknown')} "
+                f"({call.get('operation', 'model call')}): {call.get('status', 'unknown')}, "
+                f"{float(call.get('latency_ms', 0.0)):.0f} ms, "
+                f"estimated $ {float(call.get('estimated_cost_usd', 0.0)):.6f}"
+            )
+            if call.get("evidence_candidates") is not None:
+                detail += (
+                    f"; evidence filtered {call['evidence_candidates']} -> "
+                    f"{call.get('evidence_sent', 0)} excerpts"
+                )
+            if call.get("error_type"):
+                detail += f"; {call['error_type']} fallback used"
+            report_lines.append(detail)
+        report_lines.append(
+            f"- Total: {len(successful_calls)} successful requests, {total_tokens} tokens, "
+            f"{total_latency:.0f} ms, estimated $ {total_cost:.6f}."
+        )
 
     return {"final_report": "\n".join(report_lines)}

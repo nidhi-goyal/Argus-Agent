@@ -1,2 +1,2 @@
-"""Group 2 orchestration test package placeholder."""
+"""Orchestration test package placeholder."""
 

@@ -1,4 +1,4 @@
-"""Group 3: run a small repeatable benchmark over all three group datasets."""
+"""run a small repeatable benchmark over all benchmark datasets."""
 
 # Run with: python -m evaluation.regression
 # This benchmark evaluates retrieval and answer/agent behavior as separate metrics.
@@ -44,7 +44,7 @@ def run_regression() -> dict[str, float]:
     """Run retrieval, tool-choice, seeded-conflict, grounding, and risk checks."""
     metrics: dict[str, float] = {}
 
-    # Group 1: see whether the expected source document appears in the top five.
+    # see whether the expected source document appears in the top five.
     retrieval_cases = _load("g1_retrieval_qa.json")
     retrieval_hits = 0
     for case in retrieval_cases:
@@ -55,7 +55,7 @@ def run_regression() -> dict[str, float]:
         )
     metrics["Retrieval source hit rate"] = retrieval_precision(retrieval_hits, len(retrieval_cases))
 
-    # Group 2: score deterministic first-tool choices from the labelled questions.
+    # score deterministic first-tool choices from the labelled questions.
     orchestration = _load("g2_agents.json")
     tool_cases = [
         {
@@ -85,7 +85,7 @@ def run_regression() -> dict[str, float]:
     metrics["Claim grounding"] = claim_grounding(verified["claims"])
     metrics["Citation coverage"] = citation_coverage(verified["claims"])
 
-    # Group 3: score the labelled risk examples using the production risk function.
+    # score the labelled risk examples using the production risk function.
     quality = _load("g3_trust_quality.json")
     risk_cases = []
     for case in quality["risk_cases"]:
