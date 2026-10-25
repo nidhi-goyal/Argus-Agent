@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "ignoreCommand": "case \"$(git log -1 --format=%s)\" in railway-deploy:*) exit 0 ;; *) exit 1 ;; esac",
   "functions": {
     "api/index.py": {
       "maxDuration": 60,

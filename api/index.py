@@ -9,6 +9,7 @@ from typing import Any
 
 from fastapi import FastAPI, Request
 from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 
 from config.settings import PROJECT_ROOT, SETTINGS
 from graph.graph import run_investigation
@@ -94,3 +95,6 @@ async def investigate(request: Request) -> JSONResponse:
             status_code=500,
         )
     return JSONResponse(_browser_result(state))
+
+
+app.mount("/", StaticFiles(directory=FRONTEND_ROOT, html=True), name="frontend")

@@ -56,6 +56,12 @@ Import this repository as a Vercel project and deploy from the repository root. 
 
 No environment variables are required for the deterministic workflow. To enable the optional OpenAI model cascade, add `ARGUS_API_KEY` in the Vercel project’s Environment Variables and redeploy. Add `LANGSMITH_API_KEY` and optionally `LANGSMITH_PROJECT` / `LANGSMITH_TRACING` if you want LangSmith tracing. Do not commit production credentials or upload `.env`.
 
+Commits whose subject starts with `railway-deploy:` are skipped by Vercel's `ignoreCommand`, so Railway-only deployment setup can be pushed without triggering a Vercel build. Use that prefix only for commits that should not update Vercel; normal application commits continue to deploy.
+
+## Deploy to Railway
+
+The root `railway.json` and `Dockerfile` configure a Railway container deployment. Create a Railway service from this repository and deploy it from the repository root. The container listens on Railway's `$PORT`, serves the browser interface and static assets, and exposes `/healthz` for the deployment health check. Set `ARGUS_API_KEY` in Railway Variables to enable the optional OpenAI model cascade; otherwise the deterministic workflow runs without credentials.
+
 ## Tests and evaluation
 
 Run the test suite:

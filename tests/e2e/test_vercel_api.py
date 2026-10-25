@@ -24,6 +24,20 @@ def test_homepage_is_served_by_fastapi_fallback():
     assert "ARGUS | Risk intelligence" in response.text
 
 
+def test_static_assets_are_served_by_fastapi():
+    response = client.get("/assets/styles.css")
+
+    assert response.status_code == 200
+    assert "--navy: #101a24" in response.text
+
+
+def test_favicon_is_served_by_fastapi():
+    response = client.get("/favicon.svg")
+
+    assert response.status_code == 200
+    assert "<svg" in response.text
+
+
 def test_investigation_rejects_invalid_question():
     response = client.post("/api/investigate", json={"question": " "})
 
