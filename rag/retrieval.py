@@ -7,14 +7,14 @@
 from __future__ import annotations
 
 from datetime import date
-from pathlib import Path
 from typing import Any
 
+from config.settings import SETTINGS
 from rag.faiss_store import load_index
 from rag.reranker import is_stale, rerank_chunks
 
 
-INDEX_DIR = Path(__file__).resolve().parents[1] / "data" / "index"
+INDEX_DIR = SETTINGS.index_dir
 FILTER_ALIASES = {
     "document_type": "doc_type",
     "type": "doc_type",

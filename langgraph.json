@@ -1,0 +1,9 @@
+{
+  "dependencies": [
+    "."
+  ],
+  "graphs": {
+    "argus": "./graph/graph.py:graph"
+  },
+  "env": ".env"
+}

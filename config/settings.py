@@ -15,6 +15,12 @@ from dotenv import load_dotenv
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 # Load the documented .env file once so local settings work after setup instructions.
 load_dotenv(PROJECT_ROOT / ".env")
+DEFAULT_INDEX_DIR = Path(
+    os.getenv(
+        "ARGUS_INDEX_DIR",
+        "/tmp/argus-index" if os.getenv("VERCEL") else str(PROJECT_ROOT / "data" / "index"),
+    )
+)
 
 
 @dataclass(frozen=True)
@@ -31,7 +37,7 @@ class Settings:
     risk_weight_probability: float = 0.35
     risk_weight_urgency: float = 0.25
     sample_docs_dir: Path = PROJECT_ROOT / "data" / "sample_docs"
-    index_dir: Path = PROJECT_ROOT / "data" / "index"
+    index_dir: Path = DEFAULT_INDEX_DIR
 
 
 def _integer(name: str, default: int, minimum: int) -> int:
@@ -70,6 +76,7 @@ def get_settings() -> Settings:
         risk_weight_impact=_positive_float("ARGUS_RISK_WEIGHT_IMPACT", 0.40),
         risk_weight_probability=_positive_float("ARGUS_RISK_WEIGHT_PROBABILITY", 0.35),
         risk_weight_urgency=_positive_float("ARGUS_RISK_WEIGHT_URGENCY", 0.25),
+        index_dir=Path(os.getenv("ARGUS_INDEX_DIR", str(DEFAULT_INDEX_DIR))),
     )
     weight_total = (
         settings.risk_weight_impact

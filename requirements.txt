@@ -1,12 +1,6 @@
 langgraph>=1.0
-langchain-openai>=1.0
+fastapi>=0.115
 openai>=2.0
-langchain-ollama>=1.0
-faiss-cpu>=1.8.0
-sentence-transformers>=3.0
 pypdf>=5.0
-scikit-learn>=1.5
 python-dotenv>=1.0
-pyyaml>=6.0
-rich>=13.0
 pytest>=8.0

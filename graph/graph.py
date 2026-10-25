@@ -163,6 +163,9 @@ def build_graph():
     return workflow.compile()
 
 
+graph = build_graph()
+
+
 def run_investigation(user_query: str, **overrides: Any) -> IntelligenceState:
     """Run the compiled graph for one question and return its completed state."""
     from graph.state import new_state
