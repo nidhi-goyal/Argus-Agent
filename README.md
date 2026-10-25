@@ -52,7 +52,7 @@ The root [langgraph.json](langgraph.json) exposes the compiled ARGUS graph to th
 
 ## Deploy to Vercel
 
-Import this repository as a Vercel project and deploy from the repository root. Vercel serves the browser app from `web/` and routes `/api/investigate` to the Python function in `api/`. The function builds the internal-document search index in its writable temporary directory when first needed; each fresh function instance may build its own index.
+Import this repository as a Vercel project and deploy from the repository root. Vercel serves the browser app and its assets from `public/` and routes `/api/investigate` to the Python function in `api/`. The function builds the internal-document search index in its writable temporary directory when first needed; each fresh function instance may build its own index.
 
 No environment variables are required for the deterministic workflow. To enable the optional OpenAI model cascade, add `ARGUS_API_KEY` in the Vercel project’s Environment Variables and redeploy. Add `LANGSMITH_API_KEY` and optionally `LANGSMITH_PROJECT` / `LANGSMITH_TRACING` if you want LangSmith tracing. Do not commit production credentials or upload `.env`.
 

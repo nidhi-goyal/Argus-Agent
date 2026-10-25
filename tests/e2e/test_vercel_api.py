@@ -17,6 +17,13 @@ def test_health_check():
     assert response.json() == {"status": "ok"}
 
 
+def test_homepage_is_served_by_fastapi_fallback():
+    response = client.get("/")
+
+    assert response.status_code == 200
+    assert "ARGUS | Risk intelligence" in response.text
+
+
 def test_investigation_rejects_invalid_question():
     response = client.post("/api/investigate", json={"question": " "})
 

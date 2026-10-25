@@ -8,9 +8,9 @@ from threading import Lock
 from typing import Any
 
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
 
-from config.settings import SETTINGS
+from config.settings import PROJECT_ROOT, SETTINGS
 from graph.graph import run_investigation
 from rag.ingest import build_index
 from webapp import MAX_QUESTION_LENGTH, MAX_REQUEST_BYTES, _browser_result
@@ -18,6 +18,12 @@ from webapp import MAX_QUESTION_LENGTH, MAX_REQUEST_BYTES, _browser_result
 
 app = FastAPI()
 _index_lock = Lock()
+FRONTEND_ROOT = PROJECT_ROOT / "public"
+
+
+@app.get("/", include_in_schema=False)
+def index() -> FileResponse:
+    return FileResponse(FRONTEND_ROOT / "index.html", media_type="text/html")
 
 
 def _ensure_index() -> None:
