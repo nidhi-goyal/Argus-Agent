@@ -31,6 +31,47 @@
       <div class="sample-label"><span class="sample-dot"></span> Fictional sample data</div>
     </div>
 
+    <section class="guide-card" aria-labelledby="guide-title">
+      <div class="guide-overview">
+        <span class="guide-mark" aria-hidden="true">A</span>
+        <div>
+          <div class="section-kicker">YOUR AI RISK RESEARCH ASSISTANT</div>
+          <h2 id="guide-title">What can ARGUS help you investigate?</h2>
+          <p>ARGUS connects reported events to Northstar's sample suppliers, products, and internal documents. It summarizes evidence, checks for conflicting claims, estimates risk, and suggests next steps for human review.</p>
+        </div>
+      </div>
+      <div class="guide-capabilities" aria-label="Things you can test">
+        <div class="guide-capability">
+          <span>01</span>
+          <strong>Regulatory changes</strong>
+          <p>Compare official notices with reports and check dates or scope.</p>
+        </div>
+        <div class="guide-capability">
+          <span>02</span>
+          <strong>Supplier exposure</strong>
+          <p>Connect disruptions or restrictions to sample products and suppliers.</p>
+        </div>
+        <div class="guide-capability">
+          <span>03</span>
+          <strong>Claims and evidence</strong>
+          <p>Check what is supported, uncertain, or contradicted by the sources.</p>
+        </div>
+      </div>
+      <div class="examples guide-examples" aria-label="Sample questions you can try">
+        <span class="examples-label">TRY A SAMPLE QUESTION</span>
+        <button type="button" class="example-chip" data-question="When do the new semiconductor export controls take effect? Compare the official notice with industry reports and explain any disagreement.">Compare regulatory dates <span aria-hidden="true">↗</span></button>
+        <button type="button" class="example-chip" data-question="A supplier may have announced a production delay. Check the available evidence for Northstar exposure and recommend next steps.">Supplier disruption <span aria-hidden="true">↗</span></button>
+        <button type="button" class="example-chip" data-question="Is the viral claim that all consumer electronics exports are banned supported by authoritative evidence?">Check a viral claim <span aria-hidden="true">↗</span></button>
+        <button type="button" class="example-chip" data-question="Which Northstar product uses the advanced accelerator supplied by Cirrus Silicon, and what evidence supports that mapping?">Trace product exposure <span aria-hidden="true">↗</span></button>
+        <div class="denial-example">
+          <span class="examples-label">TEST AN OFF-TOPIC QUESTION</span>
+          <button type="button" class="example-chip" data-question="What is a good recipe for chocolate cake?">Try an irrelevant question <span aria-hidden="true">↗</span></button>
+          <span class="denial-hint">ARGUS should decline because this is outside its business-risk scope.</span>
+        </div>
+      </div>
+      <p class="guide-hint">Select a sample to fill the investigation form, or write your own question. External reports and company data in this demo are fictional or mocked.</p>
+    </section>
+
     <section class="query-card" aria-labelledby="query-title">
       <div class="query-heading">
         <div>
@@ -50,11 +91,6 @@
           </button>
         </div>
       </form>
-      <div class="examples" aria-label="Example questions">
-        <span class="examples-label">TRY AN EXAMPLE</span>
-        <button type="button" class="example-chip" data-question="There are reports of new semiconductor export restrictions. Investigate what changed, check whether our suppliers or products may be exposed, estimate risk and recommend next actions.">Semiconductor restrictions <span aria-hidden="true">↗</span></button>
-        <button type="button" class="example-chip" data-question="A supplier may have announced a production delay. Check the available evidence for Northstar exposure and recommend next steps.">Supplier disruption <span aria-hidden="true">↗</span></button>
-      </div>
       <div class="error-banner" id="error-banner" role="alert" hidden></div>
     </section>
 

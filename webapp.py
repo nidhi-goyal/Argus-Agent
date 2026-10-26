@@ -18,8 +18,8 @@ MAX_REQUEST_BYTES = 16_384
 MAX_QUESTION_LENGTH = 2_000
 WEB_ROOT = PROJECT_ROOT / "public"
 ASSETS = {
-    "/assets/app.js": ("app.js", "text/javascript; charset=utf-8"),
-    "/assets/styles.css": ("styles.css", "text/css; charset=utf-8"),
+    "/assets/app.js": ("assets/app.js", "text/javascript; charset=utf-8"),
+    "/assets/styles.css": ("assets/styles.css", "text/css; charset=utf-8"),
 }
 
 

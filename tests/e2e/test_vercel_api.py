@@ -5,6 +5,7 @@ from __future__ import annotations
 from fastapi.testclient import TestClient
 
 import api.index as vercel_api
+from guardrails.injection import check_input
 
 
 client = TestClient(vercel_api.app)
@@ -22,6 +23,15 @@ def test_homepage_is_served_by_fastapi_fallback():
 
     assert response.status_code == 200
     assert "ARGUS | Risk intelligence" in response.text
+    assert "What can ARGUS help you investigate?" in response.text
+    assert "Supplier exposure" in response.text
+    assert "Trace product exposure" in response.text
+    guide = response.text.split('<section class="guide-card"', 1)[1].split("</section>", 1)[0]
+    assert 'aria-label="Sample questions you can try"' in guide
+    assert guide.count('class="example-chip"') == 5
+    assert "TEST AN OFF-TOPIC QUESTION" in guide
+    assert "What is a good recipe for chocolate cake?" in guide
+    assert check_input("What is a good recipe for chocolate cake?")["allowed"] is False
 
 
 def test_static_assets_are_served_by_fastapi():
